@@ -65,6 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
       Vibration.vibrate();
       await Future.delayed(Duration(milliseconds: 500));
       await Future.delayed(Duration(milliseconds: 3000));
+      await Future.delayed(Duration(milliseconds: 1));
     }
 
 
