@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vibration/vibration.dart';
 
 void main() {
   runApp(MyApp());
@@ -48,7 +49,25 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
+  void _incrementCounter() async {
+    
+    for(int i = 0; i < 10; i++) {
+      Vibration.vibrate();
+      await Future.delayed(Duration(milliseconds: 500));
+      Vibration.vibrate();
+      await Future.delayed(Duration(milliseconds: 500));
+      Vibration.vibrate();
+      await Future.delayed(Duration(milliseconds: 500));
+      Vibration.vibrate();
+      await Future.delayed(Duration(milliseconds: 500));
+      Vibration.vibrate();
+      await Future.delayed(Duration(milliseconds: 500));
+      Vibration.vibrate();
+      await Future.delayed(Duration(milliseconds: 500));
+      await Future.delayed(Duration(milliseconds: 3000));
+    }
+
+
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
@@ -58,6 +77,22 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
+
+  Future<String> kegel() {
+    Vibration.vibrate();
+    return Future.delayed(
+      Duration(seconds: 3),
+      () { print("test"); Vibration.vibrate(); return 'Large Latte'; },
+    );
+  } 
+
+
+  Future<String> pause() {
+    return Future.delayed(
+      Duration(seconds: 3),
+      () { print("pause"); return 'Large Latte'; },
+    );
+  } 
 
   @override
   Widget build(BuildContext context) {
