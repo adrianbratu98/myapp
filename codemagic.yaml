@@ -1,0 +1,2 @@
+- xcode-project use-profiles
+- xcode-project build-ipa --workspace ios/Runner.xcworkspace --scheme Runner
